@@ -67,7 +67,7 @@ export default function EditTasks({ close, item }) {
               onChange={(e) => setStatus(e.target.value)}
             >
               <option value="pending">Pending</option>
-              <option value="copmleted">Completed</option>
+              <option value="completed">Completed</option>
             </select>
           </div>
           <div className="edit-button" onClick={editTask}>
