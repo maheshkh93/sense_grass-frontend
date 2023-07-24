@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { customDelete } from "../../utilities/custom-fetch";
 
 export default function Tasklist({ item, openView, openEdit }) {
   const [dueDate, setDuedate] = useState();
@@ -14,6 +15,14 @@ export default function Tasklist({ item, openView, openEdit }) {
 
     setPending(Math.round(p / 86400000));
   }, []);
+
+  const deleteTask = async () => {
+    await customDelete(`/task/delete/${item._id}`).then((response) => {
+      if (response.result === true) {
+        alert("successfully deleted, Refresh to see the changes");
+      }
+    });
+  };
 
   return (
     <div className="task-list">
@@ -34,7 +43,10 @@ export default function Tasklist({ item, openView, openEdit }) {
                 className="fa fa-edit todo-icon"
                 onClick={() => openEdit(item._id)}
               ></i>
-              <i className="fa fa-trash-o todo-icon"></i>
+              <i
+                className="fa fa-trash-o todo-icon"
+                onClick={() => deleteTask()}
+              ></i>
             </td>
           </tr>
         </tbody>

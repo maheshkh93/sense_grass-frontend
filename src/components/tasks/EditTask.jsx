@@ -17,7 +17,6 @@ export default function EditTasks({ close, item }) {
       dueDate: dueDate,
       status: status,
     };
-    console.log(item._id);
     await customPut(`/task/update/${item[0]._id}`, obj).then((response) => {
       if (response.result === true) {
         setTitle("");
