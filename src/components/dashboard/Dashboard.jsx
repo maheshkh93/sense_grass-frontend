@@ -6,7 +6,7 @@ import "./Dashboard.css";
 import AddTasks from "../tasks/AddTasks";
 import Tasklist from "./Tasklist";
 import { customGet } from "../../utilities/custom-fetch";
-import ViewTasks from "../tasks/viewTask.jsx";
+import ViewTasks from "../tasks/ViewTask.jsx";
 import EditTasks from "../tasks/EditTask.jsx";
 
 export default function Dashboard() {
