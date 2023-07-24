@@ -3,7 +3,7 @@ import "./Tasks.css";
 // import MyButton from "../button/MyButton";
 
 export default function ViewTasks({ close, item }) {
-  const [title, setTitle] = useState(item[0].title);
+  const [title, setTitle] = useState();
   const [description, setDescription] = useState(item[0].description);
   const [dueDate, setDueDate] = useState(
     new Date(item[0].dueDate).toLocaleDateString()
@@ -13,13 +13,13 @@ export default function ViewTasks({ close, item }) {
   return (
     <div className="tasks">
       <div className="add-tasks">
-        <form action="/" className="task-form">
+        <form className="task-form">
           <div className="close" onClick={() => close()}>
             Close
           </div>
           <div className="input">
             <div className="title">Title:</div>
-            <div>{title}</div>
+            <div>{item[0].title}</div>
           </div>
           <div className="description1">
             <div className="title">Description:</div>
