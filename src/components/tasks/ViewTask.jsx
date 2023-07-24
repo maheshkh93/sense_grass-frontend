@@ -11,19 +11,19 @@ export default function ViewTasks({ close, item }) {
             Close
           </div>
           <div className="input">
-            <div className="title">Title:</div>
+            <div className="title1">Title:</div>
             <div>{item[0].title}</div>
           </div>
           <div className="description1">
-            <div className="title">Description:</div>
+            <div className="title1">Description:</div>
             <div>{item[0].description}</div>
           </div>
           <div className="input">
-            <div className="title">Due Date:</div>
+            <div className="title1">Due Date:</div>
             {new Date(item[0].dueDate).toLocaleDateString()}
           </div>
           <div className="input">
-            <div className="title">Status:</div>
+            <div className="title1">Status:</div>
             {item[0].status}
           </div>
           {/* <div className="input" onClick={editTask}>
