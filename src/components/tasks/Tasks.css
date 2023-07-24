@@ -1,0 +1,48 @@
+.tasks {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  background-color: rgb(228, 248, 232, 0.4);
+}
+.add-tasks {
+  margin: 100px auto;
+  width: 600px;
+  height: 430px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0.1px black;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.task-form {
+  padding: 15px;
+  text-align: left;
+  position: relative;
+}
+.description1 {
+  padding: 10px;
+  font-weight: 600;
+}
+.description1 textarea {
+  min-width: 300px;
+  min-height: 90px;
+  max-width: 400px;
+  max-height: 100px;
+}
+.edit-button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: underline;
+}

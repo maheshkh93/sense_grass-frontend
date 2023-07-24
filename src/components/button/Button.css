@@ -1,0 +1,32 @@
+.button {
+  background-color: rgba(34, 163, 62, 0.9);
+  padding: 5px;
+  width: 180px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+.button:hover {
+  background-color: rgba(5, 88, 23, 0.9);
+}
+
+.button:active {
+  scale: 0.9;
+}
+
+.outline {
+  border: 3px solid rgb(2, 192, 2);
+  padding: 5px;
+  width: 180px;
+  height: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+.outline:hover {
+  border: 3px solid rgb(78, 250, 78);
+}
+
+.outline:active {
+  scale: 0.9;
+}
