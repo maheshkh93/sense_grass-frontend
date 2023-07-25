@@ -55,9 +55,15 @@ export default function EditTasks({ close, item }) {
             <div>Due Date</div>
             <input
               type="date"
-              value={dueDate}
+              value={`${new Date(dueDate).getFullYear()}-0${
+                new Date(dueDate).getMonth() + 1
+              }-${new Date(dueDate).getDate()}`}
               onChange={(e) => setDueDate(e.target.value)}
             />
+            {console.log(new Date(dueDate).getFullYear())}
+            {console.log(new Date(dueDate).getMonth())}
+            {console.log(new Date(dueDate).getDate())}
+            {console.log(new Date(dueDate).toLocaleDateString())}
           </div>
           <div className="input">
             <div>Due Date</div>
