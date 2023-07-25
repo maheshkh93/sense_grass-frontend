@@ -18,9 +18,16 @@ export default function Dashboard() {
 
   const [taskList, setTaskList] = useState([]);
 
-  function updateTask(task) {
-    setTaskList([taskList.concat(task)]);
-  }
+  // const updateTask = (task) => {
+  //   setTaskList([taskList.concat(task)]);
+  // };
+
+  const refresh = () => {
+    let email = sessionStorage.getItem("email");
+    customGet(`/task/get-tasks/${email}`).then((response) => {
+      response.tasks ? setTaskList(response.tasks) : null;
+    });
+  };
 
   useEffect(() => {
     let email = sessionStorage.getItem("email");
@@ -62,6 +69,9 @@ export default function Dashboard() {
       <div className="header">
         <Header />
       </div>
+      <h3 className="refresh" onClick={refresh}>
+        REFRESH
+      </h3>
       <div className="top-container">
         <div className="sidebar" onClick={() => setAddtask(true)}>
           <Button lable="ADD TASKS" />
@@ -105,7 +115,7 @@ export default function Dashboard() {
       </div>
       {addTask ? (
         <div className="tasks">
-          <AddTasks close={closeAdd} updateTask={updateTask} />
+          <AddTasks close={closeAdd} />
         </div>
       ) : null}
       {viewTask && viewItem ? (

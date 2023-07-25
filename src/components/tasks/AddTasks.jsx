@@ -3,7 +3,7 @@ import "./Tasks.css";
 import MyButton from "../button/MyButton";
 import { customPost } from "../../utilities/custom-fetch";
 
-export default function AddTasks({ close }, { updateTask }) {
+export default function AddTasks({ close }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState();
@@ -17,12 +17,12 @@ export default function AddTasks({ close }, { updateTask }) {
     };
     await customPost(`/task/create`, obj).then((response) => {
       if (response.result === true) {
-        alert("Task added");
+        alert("Task added, refresh to see the changes");
         setTitle("");
         setDescription("");
         setDueDate();
         close();
-        updateTask(response.task);
+        // updateTask(response.task);
       }
     });
   };
