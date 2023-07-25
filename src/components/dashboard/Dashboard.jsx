@@ -66,7 +66,10 @@ export default function Dashboard() {
         <div className="sidebar" onClick={() => setAddtask(true)}>
           <Button lable="ADD TASKS" />
         </div>
-        <div className="filters">
+        <div
+          className="filters"
+          title="This feature is not available right now"
+        >
           <MyButton lable="COMPLETED TASKS" />
           <MyButton lable="PENDING TASKS" />
           <MyButton lable="INCOMPLETED TASKS" />
