@@ -55,8 +55,9 @@ export default function Signup() {
 
       customPost(`/user/signup`, obj).then((response) => {
         if (response.result === true) {
-          sessionStorage.setItem("email", response.email);
-          sessionStorage.setItem("username", response.name);
+          console.log(response.name);
+          sessionStorage.setItem("email", response.user.email);
+          sessionStorage.setItem("username", response.user.name);
           sessionStorage.setItem("token", response.token);
           navigate("/task-manager");
           alert("Your account created successfully");
