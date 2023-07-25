@@ -28,6 +28,7 @@ export default function Header() {
       <div className="bubble bubble4"></div>
       <div className="bubble bubble5"></div>
       <div className="bubble bubble6"></div>
+      <div className="div"></div>
       <div className="div">
         <h2>MY TASK MANAGER</h2>
       </div>
