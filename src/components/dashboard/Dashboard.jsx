@@ -15,8 +15,8 @@ export default function Dashboard() {
   const [viewItem, setViewItem] = useState({});
   const [editTask, setEdittask] = useState(false);
   const [editItem, setEditItem] = useState({});
-
   const [taskList, setTaskList] = useState([]);
+  const [copyList, setCopyList] = useState([]);
 
   // const updateTask = (task) => {
   //   setTaskList([taskList.concat(task)]);
@@ -25,14 +25,18 @@ export default function Dashboard() {
   const refresh = () => {
     let email = sessionStorage.getItem("email");
     customGet(`/task/get-tasks/${email}`).then((response) => {
-      response.tasks ? setTaskList(response.tasks) : null;
+      response.tasks
+        ? (setTaskList(response.tasks), setCopyList(response.tasks))
+        : null;
     });
   };
 
   useEffect(() => {
     let email = sessionStorage.getItem("email");
     customGet(`/task/get-tasks/${email}`).then((response) => {
-      response.tasks ? setTaskList(response.tasks) : null;
+      response.tasks
+        ? (setTaskList(response.tasks), setCopyList(response.tasks))
+        : null;
     });
   }, []);
 
@@ -63,6 +67,21 @@ export default function Dashboard() {
     setEdittask(false);
     setEditItem({});
   };
+  const completedTasks = () => {
+    const list = copyList.filter((item) => item.status === "completed");
+    setTaskList(list);
+  };
+  const pendingTasks = () => {
+    const list = copyList.filter((item) => item.status === "pending");
+    setTaskList(list);
+  };
+  const sortList = () => {
+    const list = [...copyList].sort((a, b) => {
+      return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+    });
+
+    setTaskList(list);
+  };
 
   return (
     <>
@@ -76,14 +95,19 @@ export default function Dashboard() {
         <div className="sidebar" onClick={() => setAddtask(true)}>
           <Button lable="ADD TASKS" />
         </div>
-        <div
-          className="filters"
-          title="This feature is not available right now"
-        >
-          <MyButton lable="COMPLETED TASKS" />
-          <MyButton lable="PENDING TASKS" />
-          <MyButton lable="INCOMPLETED TASKS" />
-          <MyButton lable="SORT BY DUE DATE" />
+        <div className="filters">
+          <div onClick={() => setTaskList(copyList)}>
+            <MyButton lable="VIEW ALL TASKS" />
+          </div>
+          <div onClick={() => completedTasks()}>
+            <MyButton lable="COMPLETED TASKS" />
+          </div>
+          <div onClick={() => pendingTasks()}>
+            <MyButton lable="PENDING TASKS" />
+          </div>
+          <div onClick={() => sortList()}>
+            <MyButton lable="SORT BY DUE DATE" />
+          </div>
         </div>
       </div>
       <div className="task-container">

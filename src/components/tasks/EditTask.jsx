@@ -60,10 +60,6 @@ export default function EditTasks({ close, item }) {
               }-${new Date(dueDate).getDate()}`}
               onChange={(e) => setDueDate(e.target.value)}
             />
-            {console.log(new Date(dueDate).getFullYear())}
-            {console.log(new Date(dueDate).getMonth())}
-            {console.log(new Date(dueDate).getDate())}
-            {console.log(new Date(dueDate).toLocaleDateString())}
           </div>
           <div className="input">
             <div>Due Date</div>
@@ -77,7 +73,7 @@ export default function EditTasks({ close, item }) {
             </select>
           </div>
           <div className="edit-button" onClick={editTask}>
-            <MyButton lable="EDIT" />
+            <MyButton lable="UPDATE" />
           </div>
         </form>
       </div>

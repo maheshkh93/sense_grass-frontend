@@ -28,14 +28,12 @@ export default function Header() {
       <div className="bubble bubble4"></div>
       <div className="bubble bubble5"></div>
       <div className="bubble bubble6"></div>
-      <div className="div"></div>
-      <div className="div">
+      <div className="division">
         <h2>MY TASK MANAGER</h2>
       </div>
-
-      <div className="div">
-        <div className="div name">{username}</div>
-        <button onClick={logout}>Logout</button>
+      <div className="division name">
+        <h3>{username}</h3>
+        <h4 onClick={logout}>Logout</h4>
       </div>
     </div>
   );

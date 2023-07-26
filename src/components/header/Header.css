@@ -7,21 +7,22 @@
   line-height: 50%;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .bubble {
   position: absolute;
   border-radius: 50%;
   background-image: linear-gradient(
-    to top,
+    to bottom,
     rgb(0, 240, 0),
     rgb(125, 252, 76, 0.9),
     rgb(245, 248, 232, 0.8)
   );
 }
 .bubble1 {
-  top: 15px;
-  left: 5%;
+  top: -275px;
+  left: 40%;
   height: 300px;
   width: 300px;
 }
@@ -45,7 +46,7 @@
 }
 .bubble5 {
   top: 3px;
-  left: 5%;
+  left: 22%;
   height: 30px;
   width: 30px;
 }
@@ -55,11 +56,16 @@
   height: 25px;
   width: 25px;
 }
-.div {
-  z-index: 10;
+.division {
+  z-index: 1;
+  display: flex;
+  padding: 0 50px;
+  gap: 25px;
 }
+.division h4 {
+  cursor: pointer;
+}
+
 .name {
-  font-size: 25px;
-  font-weight: 600;
   text-transform: capitalize;
 }
